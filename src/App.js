@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import CoinTracker from "./CoinTracker";
+import Header from "./Header";
+import './App.css'
 
-function App() {
+const currency = [
+  {
+    coin: 'bitcoin',
+    short: 'btc',
+    rgb: {
+      red: 242,
+      green: 170,
+      blue: 0
+    }
+  },
+  {
+    coin: 'ethereum',
+    short: 'eth',
+    rgb: {
+      red: 113,
+      green: 107,
+      blue: 148
+    }
+  },
+]
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+      </style> 
+      <Header />
+      {
+        currency.map(item => {
+          return(
+            <CoinTracker 
+              coin={item.coin}
+              short={item.short}
+              rgb={item.rgb}
+            />
+          )
+        })
+      }
     </div>
   );
 }

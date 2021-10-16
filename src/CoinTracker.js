@@ -118,7 +118,9 @@ const CoinTracker = (props) => {
                         new Date(price[0]).toLocaleString('en-US', {timeStyle: 'short'})
                     ),
                     datasets: [{
-                        data: prices,   
+                        data: prices, 
+                        hoverBorderWidth: 15,
+                        hoverBorderColor: '#FAFAFA',  
                         fill: true,
                         pointRadius: 0,
                         backgroundColor: `rgba(${props.rgb.red}, ${props.rgb.green}, ${props.rgb.blue}, 0.65)`,

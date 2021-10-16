@@ -9,7 +9,7 @@ const Header = (props) => {
             </div>
             <div 
                 class="header-github"
-                onClick={() => {window.open('https://github.com/moncayo', '_blank')}}
+                onClick={() => {window.open('https://github.com/moncayo/cointicker', '_blank')}}
                 ><GoMarkGithub size={35}/></div>
         </div>
     )

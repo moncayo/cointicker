@@ -1,10 +1,11 @@
 const express = require('express')
 const path = require('path');
 const app = express()
-const port = 5000
+const port = process.env.PORT || 5000
 const { default: axios } = require('axios');
   
 app.use(express.json())
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/coin_data', (req, res) => {
     axios.get(`https://api.coingecko.com/api/v3/coins/${req.query.coin}/`)

@@ -53,7 +53,7 @@ const CoinTracker = (props) => {
 
 
     const fetchData = () => {
-        axios.get('http://localhost:5000/coin_data', { 
+        axios.get('/coin_data', { 
             params: {
                 coin: props.coin
             }
@@ -72,7 +72,7 @@ const CoinTracker = (props) => {
         })
 
 
-        axios.get('http://localhost:5000/coin_history', {
+        axios.get('/coin_history', {
             params: {
                 coin: props.coin
             }

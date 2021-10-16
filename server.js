@@ -5,7 +5,6 @@ const port = 5000
 const { default: axios } = require('axios');
   
 app.use(express.json())
-app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/coin_data', (req, res) => {
     axios.get(`https://api.coingecko.com/api/v3/coins/${req.query.coin}/`)
@@ -19,9 +18,9 @@ app.get('/coin_history', (req, res) => {
     .catch(err => res.send(err))
 })
 
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/build/index.html'));
+  });
 
 app.listen(port, () => {
     console.log(`Server running at port ${port}`)

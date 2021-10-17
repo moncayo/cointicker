@@ -35,7 +35,6 @@ const App = () => {
           return(
             <CoinTracker 
               coin={item.coin}
-              short={item.short}
               rgb={item.rgb}
             />
           )

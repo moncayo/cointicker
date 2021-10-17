@@ -82,9 +82,9 @@ const CoinTracker = (props) => {
         }
 
         switch (icon) {
-            case 'btc':
+            case 'bitcoin':
                 return <BiBitcoin size={SIZE} style={style}/>
-            case 'eth':
+            case 'ethereum':
                 return <FaEthereum size={SIZE} style={style}/>
             default:
                 return;
@@ -96,15 +96,15 @@ const CoinTracker = (props) => {
     }, [])
 
     return(
-        <div class='coin-tracker-container'>
+        <div className='coin-tracker-container'>
             
-            <div class='coin-name' style={{color: `rgb(${props.rgb.red},${props.rgb.green},${props.rgb.blue})` }}>
-                {switchRender(props.short)}
-                {props.short}
+            <div className='coin-name' style={{color: `rgb(${props.rgb.red},${props.rgb.green},${props.rgb.blue})` }}>
+                {switchRender(props.coin)}
+                {props.coin}
             </div>
-            <div class='line-chart-container'> 
+            <div className='line-chart-container'> 
             <Line 
-                class='line-chart'
+                className='line-chart'
                 options={options}
                 data={{
                     labels: prices.map(price => 
@@ -125,21 +125,21 @@ const CoinTracker = (props) => {
             />
             </div>
 
-            <div class='ticker-container'>
-                <div class='ticker-header'>
-                    <div class='market-name'>Exchange</div>
+            <div className='ticker-container'>
+                <div className='ticker-header'>
+                    <div className='market-name'>Exchange</div>
                     <div>Price</div>
                 </div>
                 {
-                    tickers.map(ticker => {
+                    tickers.map((ticker,idx) => {
                         return (
-                            <div 
-                                class='ticker-item' 
+                            <div key={idx}
+                                className='ticker-item' 
                                 onClick={() => ticker.trade_url 
                                             ? window.open(ticker.trade_url, '_blank') 
                                             : null}>
-                                <div class='market-name'>{ticker.market.name}</div>
-                                <div class='coin-price'>${ticker.last.toFixed(2)}</div>
+                                <div className='market-name'>{ticker.market.name}</div>
+                                <div className='coin-price'>${ticker.last.toFixed(2)}</div>
                             </div>
                         )
                     })

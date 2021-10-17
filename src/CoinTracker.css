@@ -15,10 +15,12 @@
 }
 
 .ticker-container {
-    background: -webkit-linear-gradient(#fc6c85, #fc94a1, #ffcccb, #cdffcc, #b0f5ab, #90ef90);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
+    -webkit-background: linear-gradient(#fc6c85, #fc94a1, #ffcccb, #cdffcc, #b0f5ab, #90ef90);
+    background: linear-gradient(#fc6c85, #fc94a1, #ffcccb, #cdffcc, #b0f5ab, #90ef90);
+    -webkit-background-clip:text;
+    background-clip:text;
+    
+    color:transparent;
     width: 35%;
     padding: 1%;
     font-size: 20px;

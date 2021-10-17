@@ -48,9 +48,6 @@ const options = {
 const CoinTracker = (props) => {
     const [tickers, setTickers] = useState([])
     const [prices, setPrices] = useState([])
-    const [buyExchange, setBuyExchange] = useState('')
-    const [sellExchange, setSellExchange] = useState('')
-
 
     const fetchData = () => {
         axios.get('/coin_data', { 
@@ -64,10 +61,6 @@ const CoinTracker = (props) => {
                 .sort((a,b) => b.volume - a.volume) // sorts by highest vol
                 .sort((a,b) => b.last - a.last) // sorts high to low
             
-            //const SIZE = filter.length
-            
-            //setBuyExchange(filter[SIZE - 1].trade_url)
-            //setSellExchange(filter[0].trade_url)
             setTickers(filter.slice(0, 10))
         })
 
@@ -152,19 +145,6 @@ const CoinTracker = (props) => {
                     })
                 }
             </div>
-
-            {/* <div class='buy-sell-button-container'>
-                <button 
-                    class='buy-button' 
-                    onClick={() => {
-                        window.open(buyExchange, '_blank')
-                    }}>BUY</button>
-                <button 
-                    class='sell-button' 
-                    onClick={() => {
-                        window.open(sellExchange, '_blank')
-                    }}>SELL</button>
-            </div> */}
         </div>
     )
 }

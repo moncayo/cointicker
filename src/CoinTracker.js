@@ -59,9 +59,10 @@ const CoinTracker = (props) => {
             const filter = res.data.tickers
                 .filter(t => t.target === 'USD')    // [coin]/USD
                 .sort((a,b) => b.volume - a.volume) // sorts by highest vol
+                .slice(0, 10)
                 .sort((a,b) => b.last - a.last) // sorts high to low
             
-            setTickers(filter.slice(0, 10))
+            setTickers(filter)
         })
 
 
